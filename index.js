@@ -27,10 +27,16 @@ function playRound(playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
     return `Draw! Player: ${playerSelection} and Computer: ${computerSelection}`;
   }
-  if (playerSelection === 'rock' && computerSelection === 'scissors' || playerSelection === 'paper' && computerSelection === 'rock' || playerSelection === 'scissors' && computerSelection === 'paper') {
+
+  if (
+    (playerSelection === 'rock' && computerSelection === 'scissors') || 
+    (playerSelection === 'paper' && computerSelection === 'rock') || 
+    (playerSelection === 'scissors' && computerSelection === 'paper')
+    ) {
     playerScore++;
     return `You Win! ${playerSelection} beats ${computerSelection}`;
   }
+  
   computerScore++;
   return `You Lose! ${computerSelection} beats ${playerSelection}`;
   
