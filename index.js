@@ -71,7 +71,7 @@ function playRound(event) {
   const computerSelection = getComputerChoice().toLowerCase();
 
   if (playerSelection === computerSelection) {
-    result.textContent = `Draw! both are ${playerSelection}`;
+    result.textContent = `Draw! Both are ${playerSelection}`;
     result.style.backgroundColor = colors.default;
   } else if (
     (playerSelection === 'rock' && computerSelection === 'scissors') ||
