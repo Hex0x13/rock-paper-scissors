@@ -46,6 +46,7 @@ body div {
   padding: 20px;
   position: relative;
   flex: initial;
+  cursor: pointer;
 }
 
 .option img {
