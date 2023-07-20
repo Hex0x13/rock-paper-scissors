@@ -8,12 +8,15 @@ html,
   font-family: Roboto, Arial, Helvetica, sans-serif;
   background-color: black;
   color: white;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
 }
 
 #result,
 .point,
 .option,
-#play-again-button {
+#play-again-text {
   font-size: 24px;
 }
 
@@ -42,18 +45,22 @@ body div {
   border-radius: 5%;
   padding: 20px;
   position: relative;
+  flex: initial;
 }
 
 .option img {
-  width: 16vw;
+  width: 100%;
   max-width: 160px;
 }
 
 #result {
+  display: flex;
   text-align: center;
+  justify-content: center;
+  align-items: center;
   background: rgb(50, 177, 250);
-  line-height: 10vh;
-  height: 10vh;
+  max-height: 800px;
+  padding: 3vh;
 }
 
 .point-container {
@@ -75,19 +82,21 @@ body div {
   transition: all 150ms;
 }
 
-#play-again-button {
+#play-again-text {
   position: fixed;
-  top: 80%;
+  bottom: 15px;
   left: 50%;
   transform: translateX(-50%);
-  border: 3px solid rgb(50, 177, 250);
-  padding: 10px;
-  border-radius: 10%;
   transition: all 400ms;
+  font-size: 14px;
+  font-weight: 200;
+  margin: 0;
+  padding: 0;
+  visibility: hidden;
 }
 
-#play-again-button:disabled {
-  visibility: hidden;
+#play-again-text.visible{
+  visibility: visible;
 }
 
 .increment {
@@ -109,37 +118,23 @@ body div {
 .option:hover .tooltip {
   opacity: 1;
 }
+
 .option:hover {
   border-color: rgb(28, 255, 225);
   box-shadow: 0 0 10px rgba(28, 255, 225, 0.8);
 }
 
-.option:active,
-#play-again-button:active {
+.option:active {
   border-color: rgb(255, 25, 243);
   box-shadow: 0 0 15px rgba(255, 25, 243, 0.7);
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 500px) {
 
   #result,
   .point,
   .option,
-  #play-again-button {
-    font-size: 2vw;
-  }
-}
-
-@media (max-height: 500px) {
-
-  #result,
-  .point,
-  .option,
-  #play-again-button {
-    font-size: 2vh;
-  }
-
-  .option img {
-    width: 16vh;
+  #play-again-text {
+    font-size: 3vw;
   }
 }

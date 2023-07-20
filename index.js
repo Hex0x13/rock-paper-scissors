@@ -1,7 +1,6 @@
 const options = Array.from(document.querySelectorAll('.option'));
 const result = document.querySelector('#result');
-const playAgainButton = document.querySelector('#play-again-button');
-playAgainButton.onclick = resetGame;
+const playAgainText = document.querySelector('#play-again-text');
 
 const DEFAULT_RESULT_TEXT = result.textContent;
 const colors = {
@@ -42,7 +41,8 @@ function gameStart() {
 
 function gameOver() {
   options.forEach(option => option.removeEventListener('click', playRound));
-  playAgainButton.disabled = false;
+  playAgainText.classList.add('visible');
+  window.addEventListener('dblclick', resetGame, {once: true});
 }
 
 function resetGame() {
@@ -50,7 +50,7 @@ function resetGame() {
   result.style.backgroundColor = colors.default;
   playerpoint.textContent = 0;
   computerpoint.textContent = 0;
-  playAgainButton.disabled = true;
+  playAgainText.classList.remove('visible');
   gameStart();
 }
 
