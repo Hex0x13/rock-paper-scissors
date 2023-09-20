@@ -11,35 +11,37 @@
 </head>
 
 <body>
-  <div id="result">
+  <header>
     Think and select the best option.
     The first to reach five points will claim victory.
-  </div>
-  <div class="options">
-    <button class="option" id="rock">
-      <img src="images/rock.png" alt="rock">
-      <div class="tooltip">Rock</div>
-    </button>
-    <button class="option" id="paper">
-      <img src="images/paper.png" alt="paper">
-      <div class="tooltip">Paper</div>
-    </button>
-    <button class="option" id="scissors">
-      <img src="images/scissors.png" alt="scissors">
-      <div class="tooltip">Scissors</div>
-    </button>
-  </div>
-  <div class="point-container">
-    <div class="point" id="player-point">
-      <span>Player points</span>
-      <span id="player-point-count">0</span>
+  </header>
+  <main>
+    <div class="options">
+      <button class="option" id="rock">
+        <img src="images/rock.png" alt="rock">
+        <div class="tooltip">Rock</div>
+      </button>
+      <button class="option" id="paper">
+        <img src="images/paper.png" alt="paper">
+        <div class="tooltip">Paper</div>
+      </button>
+      <button class="option" id="scissors">
+        <img src="images/scissors.png" alt="scissors">
+        <div class="tooltip">Scissors</div>
+      </button>
     </div>
-    <div class="point" id="computer-point">
-      <span>Computer points</span>
-      <span id="computer-point-count">0</span>
+    <div class="point-container">
+      <div class="point" id="player-point">
+        <span>Player points</span>
+        <span id="player-point-count">0</span>
+      </div>
+      <div class="point" id="computer-point">
+        <span>Computer points</span>
+        <span id="computer-point-count">0</span>
+      </div>
     </div>
-  </div>
-  <div id="play-again-text">Double Click to play again</div>
+    <div id="play-again-text">Double Click to play again</div>
+  </main>
 </body>
 
 </html>

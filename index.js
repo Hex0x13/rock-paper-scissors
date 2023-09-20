@@ -1,26 +1,22 @@
 const options = Array.from(document.querySelectorAll('.option'));
-const result = document.querySelector('#result');
+const result = document.querySelector('header');
 const playAgainText = document.querySelector('#play-again-text');
 
 const DEFAULT_RESULT_TEXT = result.textContent;
-const colors = {
-  default: 'rgb(50, 177, 250)',
-  player: 'rgb(5, 205, 205)',
-  computer: 'rgb(205, 5, 100)'
-};
 
 let playerpoint = document.querySelector('#player-point-count');
 let computerpoint = document.querySelector('#computer-point-count');
 
 function removeTransition(event) {
-  if (event.propertyName !== 'color') {
+  console.log(event.propertyName);
+  if (event.propertyName === '') {
     return;
   }
-  if (this.classList.value !== '') {
-    this.textContent = +this.textContent + 1;
+  if (event.target.classList.value !== '') {
+    event.target.textContent = +event.target.textContent + 1;
     checkWinner();
   }
-  this.classList.remove('increment');
+  event.target.classList.remove('increment');
 }
 
 function transitionEndListener(element) {
@@ -47,7 +43,6 @@ function gameOver() {
 
 function resetGame() {
   result.textContent = DEFAULT_RESULT_TEXT;
-  result.style.backgroundColor = colors.default;
   playerpoint.textContent = 0;
   computerpoint.textContent = 0;
   playAgainText.classList.remove('visible');
@@ -56,12 +51,10 @@ function resetGame() {
 
 function checkWinner() {
   if (+playerpoint.textContent >= 5) {
-    result.textContent = '🙍‍♂️ PLAYER WIN!';
-    result.style.backgroundColor = colors.player;
+    result.textContent = 'PLAYER WIN!';
     gameOver();
   } else if (+computerpoint.textContent >= 5) {
-    result.textContent = '🤖 COMPUTER WIN!';
-    result.style.backgroundColor = colors.computer;
+    result.textContent = 'COMPUTER WIN!';
     gameOver();
   }
 }
@@ -72,7 +65,6 @@ function playRound(event) {
 
   if (playerSelection === computerSelection) {
     result.textContent = `Draw! Both are ${playerSelection}`;
-    result.style.backgroundColor = colors.default;
   } else if (
     (playerSelection === 'rock' && computerSelection === 'scissors') ||
     (playerSelection === 'paper' && computerSelection === 'rock') ||
@@ -80,14 +72,14 @@ function playRound(event) {
   ) {
     // playerpoint.textContent = +playerpoint.textContent + 1;
     playerpoint.classList.add('increment');
-    result.textContent = `You Win! ${playerSelection} beats ${computerSelection}`;
-    result.style.backgroundColor = colors.player;
+    result.textContent = `You Win! 
+    ${playerSelection} beats ${computerSelection}`;
   }
   else {
     // computerpoint.textContent = +computerpoint.textContent + 1;
     computerpoint.classList.add('increment');
-    result.textContent = `You Lose! ${computerSelection} beats ${playerSelection}`;
-    result.style.backgroundColor = colors.computer;
+    result.textContent = `You Lose! 
+    ${computerSelection} beats ${playerSelection}`;
   }
 }
 
