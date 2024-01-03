@@ -43,7 +43,7 @@ main {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  background-color: rgb(40, 59, 59);
+  background-color: transparent;
   max-width: 900px;
   padding: 100px;
   border-radius: 50px;
@@ -97,6 +97,7 @@ header {
 
 #computer-point-count,
 #player-point-count {
+  color: white;
   margin-top: 40px;
   font-size: 40px;
   transition: all 150ms;
@@ -106,7 +107,7 @@ header {
 .point span {
   text-wrap: nowrap;
   background-color: transparent;
-  color: black;
+  color: white;
   font-size: clamp(24px, 1vw, 30px);
   font-weight: 700;
 }
